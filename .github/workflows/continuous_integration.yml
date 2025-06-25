@@ -15,9 +15,21 @@ jobs:
     - name: make
       run: |
         cd 02-software
+  
+        echo "Build first target"
         make clean
-        make
-        echo "Build directory :"
-        ls build
-        echo "Build objects directory :"
-        ls build/objects
+        make target1.elf
+        echo "Build folder structure"
+        tree build
+  
+        echo "Build second target"
+        make clean
+        make target2.elf
+        echo "Build folder structure"
+        tree build
+
+        echo "Build first target debug"
+        make clean
+        make target1.elf debug
+        echo "Build folder structure"
+        tree build
